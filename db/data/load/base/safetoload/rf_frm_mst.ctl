@@ -1,0 +1,1 @@
+#include $MTFDIR/db/data/load/base/safetoload/rf_frm_mst.ctl

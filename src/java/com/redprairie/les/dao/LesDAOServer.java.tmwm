@@ -1,0 +1,65 @@
+/*
+ *  $URL: https://athena.redprairie.com/svn/prod/env/tags/2011.2.4/src/java/com/redprairie/les/dao/LesDAOServer.java.tmwm $
+ *  $Revision: 52501 $
+ *  $Author: dradtke $
+ *  $Date: 2006-01-20 12:05:15 -0600 (Fri, 20 Jan 2006) $
+ *
+ *  $Copyright-Start$
+ *
+ *  Copyright (c) 2006
+ *  RedPrairie Corporation
+ *  All Rights Reserved
+ *
+ *  This software is furnished under a corporate license for use on a
+ *  single computer system and can be copied (with inclusion of the
+ *  above copyright) only for use on such a system.
+ *
+ *  The information in this document is subject to change without notice
+ *  and should not be construed as a commitment by RedPrairie Corporation.
+ *
+ *  RedPrairie Corporation assumes no responsibility for the use of the
+ *  software described in this document on equipment which has not been
+ *  supplied or approved by RedPrairie Corporation.
+ *
+ *  $Copyright-End$
+ */
+
+package com.redprairie.les.dao;
+
+import com.redprairie.les.dao.hibernate.LesHibernateDAOFactory;
+import com.redprairie.tm.dao.TmDAOServer;
+
+/**
+ * A server providing the LES project level with all available DAO factories.
+ *
+ * This should be used in a TM only mixed WM/TM implementation.
+ *
+ * <b><pre>
+ * Copyright (c) 2006 RedPrairie Corporation
+ * All Rights Reserved
+ * </pre></b>
+ *
+ * @author woehrer
+ * @version $Revision: 52501 $
+ */
+public abstract class LesDAOServer extends TmDAOServer
+{
+    /**
+     * Provide a project-level LES DAO factory implementation via a generic 
+     * SAL LES factory interface.
+     *
+     * @return An interface to an custom LES DAO factory implementation
+     */    
+    synchronized    
+    public static LesDAOFactory getLesFactory() {
+    
+        LesDAOFactory daoFactory = null;
+
+        switch (_PERSTANCE_TYPE) {
+            case _PERSISTANCE_HIBERNATE:
+                daoFactory = new LesHibernateDAOFactory();
+        }
+        return daoFactory;
+    }
+    
+}

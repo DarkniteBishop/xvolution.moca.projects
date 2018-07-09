@@ -1,0 +1,1 @@
+#include $DCSDIR/db/data/load/base/bootstraponly/devmst_reader.ctl
