@@ -1,0 +1,3 @@
+mls_id,locale_id,prod_id,appl_id,frm_id,vartn,srt_seq,cust_lvl,mls_text,grp_nam
+ttlvarAudSur,US_ENGLISH,LES,LES,LES,RF,0,10,"Picking Audit",XMOCA001
+ttlvarAudSurDtl,US_ENGLISH,LES,LES,LES,RF,0,10,"Picking Audit Dtl",XMOCA001
